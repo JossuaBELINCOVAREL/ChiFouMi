@@ -195,12 +195,12 @@ h1 {
     }
 
     .choices {
-        flex-direction: column;
+        flex-direction: row;
         gap: 15px;
     }
 
     .btn-choice img {
-        width: 40px;
+        width: auto;
     }
 
     #message {
