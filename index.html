@@ -1,56 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <title>ChiFouMi</title>
+    <title>ChiFouMi - Amélioré</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="score">
-        <p>Vous même</p>
-        <p>L'ordinateur</p>
-        <p id="score-joueur">0</p>
-        <p id="score-ordinateur">0</p>
-        <div id="reset">Recommencer</div>
-    </div>
-    <div class="action">
-        <p id="message">Choisissez la pierre, la feuille ou les ciseaux !</p>
-        <div id="next">Tour suivant</div>
-    </div>
-    <div class="jeu">
-        
-        <div class="choix">
-            <div class="button btn-joueur" id="pierre">
-                <img src="/assets/pierre.png" alt="pierre">
+    <div class="container">
+        <h1>ChiFouMi</h1>
+        <div class="scoreboard">
+            <div class="score">
+                <p>Joueur</p>
+                <p id="score-joueur">0</p>
+            </div>
+            <div class="score">
+                <p>Ordinateur</p>
+                <p id="score-ordinateur">0</p>
+            </div>
+        </div>
+        <div id="message">Choisissez votre coup !</div>
+        <div class="choices">
+            <div class="choice" id="pierre">
+                <img src="/assets/pierre.png" alt="Pierre">
                 <p>Pierre</p>
             </div>
-            <div class="button btn-joueur" id="feuille">
-                <img src="/assets/feuille.png" alt="feuille">
+            <div class="choice" id="feuille">
+                <img src="/assets/feuille.png" alt="Feuille">
                 <p>Feuille</p>
             </div>
-            <div class="button btn-joueur" id="ciseaux">
-                <img src="assets/ciseaux.png" alt="ciseaux">
+            <div class="choice" id="ciseaux">
+                <img src="/assets/ciseaux.png" alt="Ciseaux">
                 <p>Ciseaux</p>
             </div>
         </div>
-
-        <div class="choix">
-            <div class="button btn-ordi" id="opierre">
-                <img src="/assets/pierre.png" alt="pierre">
-                <p>Pierre</p>
-            </div>
-            <div class="button btn-ordi" id="ofeuille">
-                <img src="/assets/feuille.png" alt="feuille">
-                <p>Feuille</p>
-            </div>
-            <div class="button btn-ordi" id="ociseaux">
-                <img src="assets/ciseaux.png" alt="ciseaux">
-                <p>Ciseaux</p>
-            </div>
+        <div class="result">
+            <div class="choice-result" id="joueur-choice"></div>
+            <div class="choice-result" id="ordi-choice"></div>
         </div>
-
+        <button id="reset">Recommencer</button>
     </div>
-    <script src="/app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

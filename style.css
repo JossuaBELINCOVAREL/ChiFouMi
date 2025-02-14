@@ -1,125 +1,147 @@
 :root {
-    --primary: #fd7600;
-    --secondary: #955000;
-    --back: #f3f3f3;
-    --action: #fd7600;
-    --border-radius: 15px;
-    --btn-padding: 20px;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: var(--back);
-    font-family: sans-serif;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .score {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    display: grid;
-    grid-template-columns: repeat(2, 200px);
-    gap: 20px;
-    text-align: center;
-    font-size: 35px;
-    background-color: white;
-    padding: var(--btn-padding);
-    border-radius: 15px;
-  }
-  
-  #reset {
-    font-size: 18px;
-    grid-column: span 2;
-    cursor: pointer;
-  }
-  
-  #reset:hover {
-    color: var(--action);
-  }
-  
-  .action {
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  #message {
-    font-size: 25px;
-  }
-  
-  #next {
-    margin-top: 20px;
-    padding: 10px 30px;
-    background-color: var(--action);
-    color: white;
-    border-radius: var(--border-radius);
-    visibility: hidden;
-    cursor: pointer;
-  }
-  
-  #next.active {
-    visibility: visible;
-  }
-  
+  --primary: #fd7600;
+  --secondary: #955000;
+  --back: #f3f3f3;
+  --text: #333;
+  --white: #fff;
+  --border-radius: 15px;
+  --btn-padding: 15px;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--back);
+  color: var(--text);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* SCORING */
+.score {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  max-width: 400px;
+  background: var(--white);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#reset {
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+#reset:hover {
+  background: var(--secondary);
+}
+
+/* MESSAGES */
+.action {
+  margin-bottom: 20px;
+}
+
+#message {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+#next {
+  display: none;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#next.active {
+  display: inline-block;
+}
+
+#next:hover {
+  background: var(--secondary);
+}
+
+/* GAME AREA */
+.jeu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+/* CHOIX STYLE */
+.choix {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: white;
+  padding: var(--btn-padding);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.button img {
+  width: 50px;
+  height: 50px;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+/* ACTIVATE STATES */
+.btn-joueur.active {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.btn-ordi.active {
+  background: var(--secondary);
+  color: white;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
   .jeu {
-    border-top: 1px solid black;
-    padding-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 200px;
+      flex-direction: column;
+      gap: 30px;
   }
-  
+
   .button {
-    display: flex;
-    align-items: center;
-    font-size: 45px;
-    padding: var(--btn-padding);
+      padding: 10px;
   }
-  
-  .btn-joueur,
-  .btn-ordi {
-    border-radius: 15px;
-    transition: all 0.2s ease;
-  }
-  
-  .btn-joueur {
-    cursor: pointer;
-    background-color: white;
-  }
-  
-  .btn-joueur:hover {
-    color: var(--primary);
-  }
-  
-  .button p {
-    margin-left: 20px;
-  }
-  
-  .button:not(:last-child) {
-    margin-bottom: 40px;
-  }
-  
-  .btn-joueur.desactivated {
-    background-color: var(--back);
-    cursor: default;
-  }
-  
-  .btn-joueur.desactivated:hover,
-  .btn-joueur.active {
-    color: inherit;
-  }
-  
-  .btn-joueur.active {
-    background-color: var(--primary);
-  }
-  
-  .btn-ordi.active {
-    background-color: var(--secondary);
-  }
+}
