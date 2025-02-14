@@ -15,27 +15,30 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Press Start 2P', cursive;
-    text-align: center;
 }
 
 body {
     background: var(--background);
     color: var(--white);
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
 }
 
-/* TITRE */
 h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-/* SCOREBOARD */
 .scoreboard {
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .score {
@@ -43,22 +46,33 @@ h1 {
     color: black;
     padding: 15px;
     border-radius: var(--border-radius);
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: bold;
-    width: 120px;
+    width: 300px;
+    text-align: center;
 }
 
-/* JEU */
 .game {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 80px;
-    margin: 30px 0;
+    gap: 50px;
+    margin: 40px 0;
+    width: 100%;
+    max-width: 700px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.player, .computer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .choice-display {
-    font-size: 60px;
+    font-size: 3rem;
     background: var(--white);
     color: black;
     padding: 20px;
@@ -71,19 +85,20 @@ h1 {
     box-shadow: var(--shadow);
 }
 
-/* VS */
 .vs {
-    font-size: 40px;
+    font-size: 2rem;
     font-weight: bold;
     color: var(--primary);
+    margin: 0 20px;
 }
 
-/* CHOIX */
 .choices {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .btn-choice {
@@ -93,10 +108,13 @@ h1 {
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-choice img {
-    width: 80px;
+    width: 60px;
 }
 
 .btn-choice:hover {
@@ -104,26 +122,93 @@ h1 {
     background: var(--secondary);
 }
 
-/* MESSAGE */
 #message {
-    font-size: 20px;
+    font-size: 1.2rem;
     margin: 20px 0;
+    text-align: center;
 }
 
-/* BOUTON REJOUER */
 #reset {
     background: var(--primary);
     color: black;
-    font-size: 18px;
+    font-size: 1.2rem;
     padding: 10px 20px;
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow);
+    margin-top: 30px;
 }
 
 #reset:hover {
     background: var(--secondary);
 }
 
+/* Media Queries pour mobile et tablettes */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .scoreboard {
+        gap: 20px;
+    }
+
+    .game {
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .vs {
+        font-size: 1.5rem;
+    }
+
+    .choices {
+        gap: 10px;
+    }
+
+    .btn-choice img {
+        width: 50px;
+    }
+
+    #reset {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .scoreboard {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .game {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .choices {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-choice img {
+        width: 40px;
+    }
+
+    #message {
+        font-size: 1rem;
+    }
+
+    #reset {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
